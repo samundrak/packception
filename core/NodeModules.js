@@ -52,7 +52,7 @@ class NodeModules {
     const packageDependencies = this._package.dependencies;
     return this._fetch(packageDependencies, Dependency.TYPE_DEPENDENCY);
   }
-  getAllDepencies() {
+  getAllDependencies() {
     return Promise.all([
       this.getDependencies(),
       this.getPeerDependencies(),
