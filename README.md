@@ -13,15 +13,15 @@ const Packception = require('packception');
 const packception = new Packception(process.cwd());
 
 (async () => {
-  const mainDep = await packception.loadModules().getAllDependencies();
+  const mainDep = await packception.readModules().getAllDependencies();
   const reactPackage  = mainDep.get('react')
   .getPackage() // Will return package.json instance
-  .loadModules() // Will read local node_modules
+  .readModules() // Will read local node_modules
   const reactDependencies = await reactPackage.getDependencies();
   const reactDevDepencies = await reactPackage.getDevDependencies();
 
   // To go more deeper of react dependencies
-  const artDependencies = reactDevDepencies.get('art').getPackage().loadModules().getDependencies();
+  const artDependencies = reactDevDepencies.get('art').getPackage().readModules().getDependencies();
 
   // You can go more deep
 
